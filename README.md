@@ -1,6 +1,6 @@
 # nail-studio-bot 💅
 
-[![pipeline status](https://gitlab.com/alex.kosterov/nail-studio-bot/badges/main/pipeline.svg)](https://gitlab.com/alex.kosterov/nail-studio-bot/-/commits/main)
+[![CI](https://github.com/mrkoster1988/nail-studio-bot/actions/workflows/ci.yml/badge.svg)](https://github.com/mrkoster1988/nail-studio-bot/actions/workflows/ci.yml)
 
 
 Бот студии маникюра и педикюра: запись клиентов, каталог услуг, бонусы,
