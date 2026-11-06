@@ -1,0 +1,17 @@
+services:
+  nail-bot:
+    build: .
+    container_name: nail-bot
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./data:/app/data          # SQLite и файлы
+    ports:
+      - "${WEBHOOK_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os,sys; sys.exit(0 if 'bot.py' in open('/proc/1/cmdline','rb').read().decode(errors='ignore') else 1)"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+   # только в режиме WEBHOOK_MODE=1

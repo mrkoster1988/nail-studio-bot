@@ -1,0 +1,14 @@
+# CI: тесты при каждом пуше и мерже в main
+stages:
+  - test
+
+test:
+  stage: test
+  image: python:3.11-slim
+  before_script:
+    - pip install --no-cache-dir -r requirements.txt
+  script:
+    - python -m unittest test_scheduling test_database -v
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == "main"
